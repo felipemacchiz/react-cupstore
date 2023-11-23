@@ -1,0 +1,86 @@
+.header {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.header .title {
+    font-family: var(--logo-font);
+}
+
+.header .headerFilterArea {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+}
+
+.filterButton {
+	background: var(--white);
+	color: #000;
+	font-size: 1em;
+	border: none;
+	height: 36px;
+	padding: 0 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 8px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.filterButton:hover {
+	box-shadow: 0 0 8px #00000025;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	row-gap: 16px;
+}
+
+.item {
+	list-style: none;
+	background-color: var(--white);
+	display: grid;
+	grid-template-columns: 120px 1fr;
+	height: 120px;
+	border-radius: 8px;
+	box-shadow: 2px 2px 2px #00000015;
+	transition: 0.1s;
+	cursor: pointer;
+}
+
+.item:hover {
+	box-shadow: 2px 4px 9px #00000025;
+	transition: box-shadow 0.2s;
+}
+
+.infoWrapper {
+	padding: 10px 16px;
+	display: flex;
+	justify-content: space-between;
+	
+}
+
+.addIconWrapper {
+	display: flex;
+	align-items: center;
+}
+
+.addIcon {
+	border-radius: 50%;
+	border: 3px solid #ddd;
+	color: #ccc;
+	padding: 1px;
+	font-size: 2rem;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.addIcon:hover {
+	color: var(--white);
+	background-color: var(--cerise);
+	border-color: var(--cerise);
+}

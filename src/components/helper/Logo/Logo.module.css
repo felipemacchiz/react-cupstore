@@ -1,0 +1,9 @@
+.logo {
+    font-size: 1.5em;
+    font-family: var(--logo-font);
+    font-weight: 400;
+    color: var(--white);
+    text-decoration: none;
+    font-style: normal;
+    user-select: none;
+}

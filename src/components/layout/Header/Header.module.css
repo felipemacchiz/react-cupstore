@@ -1,0 +1,31 @@
+.header {
+    display: grid;
+    grid-template-areas: ". logo cart";
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 50px;
+    background-color: var(--cerise);
+    color: var(--white);
+    border-radius: 0px 0px 4px 4px;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logoWrapper {
+    grid-area: logo;
+    text-decoration: none;
+}
+
+.cartWrapper {
+    grid-area: cart;
+    text-decoration: none;
+}
+
+.icon {
+    font-size: 1.3em;
+    color: var(--white);
+}

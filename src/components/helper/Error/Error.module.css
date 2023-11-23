@@ -1,0 +1,11 @@
+.error {
+	color: var(--cerise);
+	font-weight: 600;
+	display: grid;
+	grid-template-columns: 16px 1fr;
+	column-gap: 6px;
+}
+
+.icon {
+	margin-top: 2px;
+}

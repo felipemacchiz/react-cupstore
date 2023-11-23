@@ -1,0 +1,25 @@
+@import url('../../../assets/styles/animations.css');
+
+.alert {
+	display: grid;
+	grid-template-columns: 16px 1fr;
+	column-gap: 8px;
+	padding: 16px;
+	max-width: 300px;
+	background-color: var(--white);
+	border-radius: 8px;
+	position: fixed;
+	top: 80px;
+	right: 20px;
+	z-index: 200;
+	box-shadow: 0 0 8px #00000030;
+	/* animation: easeInRight 0.2s forwards; */
+}
+
+.iconWrapper {
+	margin-top: 4px;
+}
+
+.closeAlert {
+	animation: easeOutRight 0.2s forwards;
+}

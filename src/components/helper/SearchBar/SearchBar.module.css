@@ -1,0 +1,21 @@
+.searchField {
+	background: var(--white);
+	border-radius: 4px;
+	height: 36px;
+	padding: 0 10px;
+	outline: none;
+	display: flex;
+	align-items: center;
+	column-gap: 8px;
+}
+
+.searchField input {
+	background: transparent;
+	border: none;
+	outline: none;
+	font-size: 1em;
+}
+
+.searchField:where( input:focus) {
+	box-shadow: 0 0 8px #00000025;
+}

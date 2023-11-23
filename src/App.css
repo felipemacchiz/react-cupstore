@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Source+Sans+3&display=swap');
+
+@import url('./assets/styles/animations.css');
+@import url('./assets/styles/animations-classes.css');
+@import url('./assets/styles/container.css');
+@import url('./assets/styles/scrollbar.css');
+@import url('./assets/styles/variables.css');
+
+* {
+  	margin: 0;
+  	padding: 0;
+	box-sizing: border-box;
+	font-family: var(--font-family);
+}
+
+body {
+	background: var(--platinum);
+	position: relative;
+	overflow-x: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: unset;
+}
+
+p {
+	line-height: 1.5;
+}
+
+img {
+	display: inline-block;
+	width: 100%;
+}
+
+::selection {
+	background: var(--cerise);
+	color: var(--platinum);
+}
+
+.iconButton {
+	background: transparent;
+	border: transparent;
+	cursor: pointer;
+}
+
+.button {
+	background: var(--cerise);
+	color: var(--white);
+	border: none;
+	padding: 8px 12px;
+	border-radius: 8px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.button:hover {
+	box-shadow: 0 0 4px #D93C6B25;
+	opacity: 0.9;
+	transform: scale(1.01);
+}
+
+.price {
+	color: green;
+	font-weight: 600;
+}

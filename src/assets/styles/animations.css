@@ -1,0 +1,43 @@
+@keyframes easeInLeft {
+	from {
+		transform: translateX(-30px);
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes easeInRight {
+	from {
+		transform: translateX(30px);
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes easeOutLeft {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-30px);
+		opacity: 0;
+	}
+}
+
+@keyframes easeOutRight {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(30px);
+		opacity: 0;
+	}
+}

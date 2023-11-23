@@ -1,0 +1,16 @@
+[data-animation=easeInLeft] {
+	animation: easeInLeft 0.2s forwards;
+}
+
+[data-animation=easeInRight] {
+	animation: easeInRight 0.2s forwards;
+}
+
+[data-animation=easeOutLeft] {
+	animation: easeOutLeft 0.2s forwards;
+}
+
+[data-animation=easeOutRight] {
+	animation: easeOutRight 0.2s forwards;
+}
+ 
