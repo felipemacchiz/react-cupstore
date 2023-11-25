@@ -1,6 +1,6 @@
 import "./App.css";
 import "./assets/styles/animations.css";
-import React from "react";
+import React, { useEffect } from "react";
 import { GlobalStorage } from "./context/GlobalContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header/Header";

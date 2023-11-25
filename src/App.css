@@ -2,6 +2,7 @@
 
 @import url('./assets/styles/animations.css');
 @import url('./assets/styles/animations-classes.css');
+@import url('./assets/styles/button.css');
 @import url('./assets/styles/container.css');
 @import url('./assets/styles/scrollbar.css');
 @import url('./assets/styles/variables.css');
@@ -33,36 +34,13 @@ img {
 	width: 100%;
 }
 
+li {
+	list-style-position: inside;
+}
+
 ::selection {
 	background: var(--cerise);
 	color: var(--platinum);
-}
-
-.iconButton {
-	background: transparent;
-	border: transparent;
-	cursor: pointer;
-}
-
-.button {
-	background: var(--cerise);
-	color: var(--white);
-	border: none;
-	padding: 8px 12px;
-	border-radius: 8px;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 8px;
-	cursor: pointer;
-	transition: 0.2s;
-}
-
-.button:hover {
-	box-shadow: 0 0 4px #D93C6B25;
-	opacity: 0.9;
-	transform: scale(1.01);
 }
 
 .price {

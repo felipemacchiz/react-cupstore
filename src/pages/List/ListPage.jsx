@@ -13,10 +13,10 @@ const ListPage = () => {
                     <h2 className={styles.title}>Cupcakes</h2>
                     <div className={styles.headerFilterArea}>
                         <SearchBar search={search} setSearch={setSearch} />
-                        <button className={styles.filterButton}>
+                        <button className='btn-secondary'>
                             <FaThLarge />
                         </button>
-                        <button className={styles.filterButton}>
+                        <button className='btn-secondary'>
                             <FaFilter />
                             Filtrar
                         </button>

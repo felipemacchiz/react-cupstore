@@ -75,7 +75,7 @@ const ProductPage = () => {
                         <p>{data[0].description}</p>
                     </div>
                     <div>
-                        <button className='button' onClick={addItemLocalStorage}>Adicione ao seu carrinho!</button>
+                        <button className='btn-primary' onClick={addItemLocalStorage}>Adicione ao seu carrinho!</button>
                     </div>
                     <div>
                         <p className={styles.productIngredients}>Ingredientes: {data[0].ingredients.join(", ")}</p>

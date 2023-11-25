@@ -5,3 +5,35 @@
 	row-gap: 10px;
 	font-size: 1.2em;
 }
+
+.cartHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.cartResume {
+	background: var(--white);
+	padding: 16px 24px;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+}
+
+.cartResumeContent {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.cartResumeTotal {
+	display: grid;
+	grid-template-columns: 56px 1fr;
+}
+
+.cartResumeTotalText {
+	padding-top: 4px;
+	font-size: 1.1rem;
+	font-weight: 600;
+}

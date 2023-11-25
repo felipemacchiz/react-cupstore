@@ -15,7 +15,7 @@ const Header = () => {
 	return (
 		<header className={styles.header}>
 			{location.pathname !== "/" && (
-				<button className='iconButton' onClick={historyBack}>
+				<button className='btn-icon' onClick={historyBack}>
 					<FaArrowLeft className={styles.icon} />
 				</button>
 			)}
