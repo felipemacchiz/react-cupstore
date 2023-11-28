@@ -1,0 +1,20 @@
+.inputWrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.2rem;
+}
+
+.input {
+	display: block;
+	width: 100%;
+	outline: none;
+	padding: 8px 12px;
+	font-size: 1rem;
+	border-radius: 8px;
+	border: 1px solid var(--gray);
+	transition: 0.2s;
+}
+
+.input:focus {
+	background-color: var(--platinum);
+}

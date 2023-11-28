@@ -15,6 +15,10 @@ const CartResume = () => {
 		return grouped;
 	}, {});
 
+	const orderPrice = data.reduce((total, i) => total + i.price, 0);
+	const shipping = 10;
+	const totalPrice = orderPrice + shipping;
+
 	return (
 		<div className={styles.cartResume}>
 			<h3>Resumo do pedido</h3>
@@ -33,15 +37,15 @@ const CartResume = () => {
 				<div>
 					<p className={styles.cartResumeTotal}>
 						<span>Pedido:</span>
-						<span>R${data.reduce((total, i) => total + i.price, 0)}</span>
+						<span>R${orderPrice}</span>
 					</p>
 					<p className={styles.cartResumeTotal}>
 						<span>Frete:</span>
-						<span>R${data.reduce((total, i) => total + i.price, 0)}</span>
+						<span>R${shipping}</span>
 					</p>
 					<p className={`${styles.cartResumeTotal} ${styles.cartResumeTotalText}`}>
 						<span>Total:</span>
-						<span>R${data.reduce((total, i) => total + i.price, 0)}</span>
+						<span>R${totalPrice}</span>
 					</p>
 				</div>
 			</div>

@@ -6,7 +6,7 @@ import { PRODUCTS_GET } from '../../../api';
 import { GlobalContext } from '../../../context/GlobalContext';
 import CartResume from './CartResume';
 import CartHeader from './CartHeader';
-import Map from '../../helper/Map/Map';
+import CartShipping from './CartShipping';
 
 const Cart = () => {
 	const global = React.useContext(GlobalContext);
@@ -24,8 +24,10 @@ const Cart = () => {
 				<CartHeader />
 				{/* {global.cart.map((item, index) => <p key={index}>{item.title} ({global.cart.filter(i => i.id === item.id).length}x)</p>)} */}
 				
-				<Map center={ { lat: -34.397, lng: 150.644 } } zoom={4}/>
+				<CartShipping />
 				
+				<br/>
+
 				<CartResume />
 			</div>
 		);

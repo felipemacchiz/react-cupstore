@@ -1,9 +1,10 @@
 import React from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 
 const containerStyle = {
 	width: '100%',
-	height: '270px',
+	maxHeight: 240,
+	aspectRatio: '3/1',
 	borderRadius: 10,
 	marginBottom: 20,
   };
@@ -13,12 +14,15 @@ const containerStyle = {
 	lng: -49.270,
   };
 
-const Map = () => {
+const GoogleMaps = () => {
 	const { isLoaded } = useJsApiLoader({
 		id: 'google-map-script',
-		googleMapsApiKey: 'AIzaSyCnBl7T1AhVWnCXvF6IsFpXuLcwvSADjKc',
+		googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
 	});
-	const [map, setMap] = React.useState(null)
+	const marker = {
+		lat: -25.4393409,
+		lng: -49.2205749,
+	}
 
 	return (
 		<div>
@@ -28,11 +32,11 @@ const Map = () => {
 					center={center}
 					zoom={13}
 				>
-					<></>
+					<Marker position={marker}/>
 				</GoogleMap>
 			) : <></> }
 		</div>
 	);
 }
 
-export default Map;
+export default GoogleMaps;
