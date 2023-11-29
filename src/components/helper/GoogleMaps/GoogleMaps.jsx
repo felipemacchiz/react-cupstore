@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker, DistanceMatrixService } from '@react-google-maps/api';
 
 const containerStyle = {
 	width: '100%',
@@ -19,7 +19,11 @@ const GoogleMaps = () => {
 		id: 'google-map-script',
 		googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
 	});
-	const marker = {
+	const markerOrigin = {
+		lat: -25.4579523,
+		lng: -49.2869351,
+	}
+	const markerDestination = {
 		lat: -25.4393409,
 		lng: -49.2205749,
 	}
@@ -32,7 +36,18 @@ const GoogleMaps = () => {
 					center={center}
 					zoom={13}
 				>
-					<Marker position={marker}/>
+					<Marker position={markerOrigin}/>
+					<Marker position={markerDestination}/>
+					<DistanceMatrixService
+						options={
+							{
+								destinations: [markerDestination],
+								origins: [markerOrigin],
+								travelMode: "DRIVING",
+							}
+						}
+						callback = {(response) => {console.log(response)}}
+						/>
 				</GoogleMap>
 			) : <></> }
 		</div>

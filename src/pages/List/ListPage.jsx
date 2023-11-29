@@ -10,18 +10,18 @@ const ListPage = () => {
     return (
 		<section className='container content' data-animation='easeInLeft'>
 			<div className={styles.header}>
-                    <h2 className={styles.title}>Cupcakes</h2>
-                    <div className={styles.headerFilterArea}>
-                        <SearchBar search={search} setSearch={setSearch} />
-                        <button className='btn-secondary'>
-                            <FaThLarge />
-                        </button>
-                        <button className='btn-secondary'>
-                            <FaFilter />
-                            Filtrar
-                        </button>
-                    </div>
+                <h2 className={styles.title}>Cupcakes</h2>
+                <div className={styles.headerFilterArea}>
+                    <SearchBar search={search} setSearch={setSearch} />
+                    <button className='btn-secondary'>
+                        <FaThLarge />
+                    </button>
+                    <button className='btn-secondary'>
+                        <FaFilter />
+                        Filtrar
+                    </button>
                 </div>
+            </div>
 			<List query={search} />
 		</section>
     );

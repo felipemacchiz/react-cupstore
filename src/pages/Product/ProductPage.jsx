@@ -64,7 +64,7 @@ const ProductPage = () => {
         return (
             <section className='fullContainer' data-animation='easeInLeft'>
                 <div>
-                    <Image src={data[0].img} />
+                    <Image src={`${window.location.origin}/${data[0].img}`} />
                 </div>
                 <div className={styles.productContainer}>
                     <div className={styles.productHeader}>

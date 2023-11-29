@@ -38,7 +38,7 @@ const Item = ({ data }) => {
 	return (
 		<li className={styles.item} onClick={handleCardClick}>
 			<div className={styles.imgWrapper} >
-				<Image src={data.img} alt={data.title} />
+				<Image src={`${window.location.origin}/${data.img}`} alt={data.title} />
 			</div>
 
 			<div className={styles.infoWrapper}>

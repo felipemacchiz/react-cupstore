@@ -1,8 +1,25 @@
 import React from 'react';
 import styles from './Input.module.css';
 
-const Input = ({ label, name, value, setValue, placeholder }) => {
+const Input = ({ label, name, type, value, setValue, placeholder }) => {
 	const id = name + new Date().getTime;
+
+	const onChange = ({ target }) => {
+		let value = target.value;
+
+		if (type === "cep") {
+			value = value
+				.replace(/\D/g, '')
+				.replace(/(\d{5})(\d)/, '$1-$2')
+				.replace(/(-\d{3})\d+?$/, '$1')
+		} else if (type === "number") {
+			value = value.replace(/\D/g, '');
+		}
+
+		console.log(value);
+
+		setValue(value);
+	}
 
 	return (
 		<div className={styles.inputWrapper}>
@@ -16,7 +33,7 @@ const Input = ({ label, name, value, setValue, placeholder }) => {
 					id={id}
 					name={name}
 					value={value}
-					onChange={({ target }) => setValue(target.value)}
+					onChange={onChange}
 					placeholder={placeholder}
 				/>
 			</div>

@@ -2,6 +2,10 @@ import React from 'react';
 import styles from './Cart.module.css';
 import GoogleMaps from '../../helper/GoogleMaps/GoogleMaps';
 import Input from '../../helper/Input/Input';
+import { CEP_GET } from '../../../api/viacep';
+import useFetch from '../../../hooks/useFetch';
+import Error from '../../helper/Error/Error';
+
 
 const CartShipping = () => {
 	const [cep, setCep] = React.useState('');
@@ -9,17 +13,47 @@ const CartShipping = () => {
 	const [numero, setNumero] = React.useState('');
 	const [bairro, setBairro] = React.useState('');
 
+	const { data, loading, error, request } = useFetch();
+
+    React.useEffect(() => {
+        async function fetchProducts() {
+			if (cep && cep.length === 9) {
+				const { url, options } = CEP_GET({ 
+					cep: cep.replace(/\D/g, ''),
+				});
+				
+				await request(url, options);
+
+				if (data) {
+					setLogradouro(data.logradouro);
+					setBairro(data.bairro);
+				}
+			} else {
+				setLogradouro('');
+				setBairro('');
+			}
+        }
+
+        fetchProducts();
+    }, [request, cep, data]);
+
 	return (
 		<div className={styles.cartResume}>
-			<h3>Dados de entrega</h3>
+			<h3>
+				Dados de entrega
+			</h3>
+
 			<div className={styles.form}>
 				<Input 
 					name="cep" 
-					label="CEP" 
+					label="CEP"
+					type="cep" 
 					placeholder="Informe seu CEP" 
 					value={cep}
 					setValue={setCep}
 				/>
+
+				{(error) && <Error error={error} />}
 
 				<Input 
 					name="logradouro" 
@@ -32,6 +66,7 @@ const CartShipping = () => {
 				<Input 
 					name="numero" 
 					label="Número" 
+					type="number"
 					placeholder="Informe seu número" 
 					value={numero}
 					setValue={setNumero}
@@ -52,13 +87,13 @@ const CartShipping = () => {
 				<GoogleMaps center={ { lat: -34.397, lng: 150.644 } } zoom={4}/>
 			</div>
 
-			<div>
+			{/* <div>
 				<button className='btn-primary'>
 					<span>
 						Salvar endereço de entrega
 					</span>
 				</button>
-			</div>
+			</div> */}
 		</div>
 	);
 }
