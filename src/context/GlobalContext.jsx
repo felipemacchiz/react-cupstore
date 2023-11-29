@@ -7,6 +7,7 @@ export const GlobalStorage = ({ children }) => {
 
 	const [alert, setAlert] = React.useState(null);
 	const [cart, setCart] = React.useState([]);
+	const [distance, setDistance] = React.useState(null);
 	
 	const addItemCart = (item) => {	
 		const storedCart = cart || [];
@@ -37,6 +38,8 @@ export const GlobalStorage = ({ children }) => {
 			setCart,
 			addItemCart,
 			deleteCart,
+			distance,
+			setDistance,
 		}}>
 			{children}
 		</GlobalContext.Provider>

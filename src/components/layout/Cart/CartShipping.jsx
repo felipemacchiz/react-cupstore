@@ -5,15 +5,26 @@ import Input from '../../helper/Input/Input';
 import { CEP_GET } from '../../../api/viacep';
 import useFetch from '../../../hooks/useFetch';
 import Error from '../../helper/Error/Error';
+import { fromAddress, setKey } from 'react-geocode';
+import { GlobalContext } from '../../../context/GlobalContext';
 
 
 const CartShipping = () => {
+	const global = React.useContext(GlobalContext);
+
+	const [coordinates, setCoordinates] = React.useState(null);
+
 	const [cep, setCep] = React.useState('');
 	const [logradouro, setLogradouro] = React.useState('');
 	const [numero, setNumero] = React.useState('');
 	const [bairro, setBairro] = React.useState('');
+	const [cidade, setCidade] = React.useState('');
+	const [uf, setUf] = React.useState('');
+	const [address, setAddress] = React.useState('');
 
 	const { data, loading, error, request } = useFetch();
+
+	setKey(import.meta.env.VITE_GOOGLE_MAPS_API_KEY);
 
     React.useEffect(() => {
         async function fetchProducts() {
@@ -27,15 +38,43 @@ const CartShipping = () => {
 				if (data) {
 					setLogradouro(data.logradouro);
 					setBairro(data.bairro);
+					setCidade(data.localidade);
+					setUf(data.uf);
 				}
 			} else {
 				setLogradouro('');
 				setBairro('');
+				setCidade('');
+				setUf('');
 			}
         }
 
         fetchProducts();
     }, [request, cep, data]);
+
+	React.useEffect(() => {
+		if (logradouro && bairro && numero) {
+			setAddress(`${logradouro}, ${numero} - ${bairro} ${cidade || ''} ${uf ? `/ ${uf}` : ''}`);
+		}
+	}, [logradouro, bairro, numero, uf, cidade]);
+
+	React.useEffect(() => {
+		async function getCoordinates() {
+			const {results, status} = await fromAddress(address);
+
+			if (status === 'OK') {
+				setCoordinates(results[0].geometry.location);
+			}
+		}
+
+		if (address)
+			getCoordinates();
+	}, [address]);
+
+	React.useEffect(() => {
+		console.log("distance");
+		console.log(global.distance);
+	}, [global.distance]);
 
 	return (
 		<div className={styles.cartResume}>
@@ -61,6 +100,7 @@ const CartShipping = () => {
 					placeholder="Informe seu CEP para preencher o logradouro" 
 					value={logradouro}
 					setValue={setLogradouro}
+					disabled
 				/>
 				
 				<Input 
@@ -78,22 +118,16 @@ const CartShipping = () => {
 					placeholder="Informe seu CEP para preencher o bairro" 
 					value={bairro}
 					setValue={setBairro}
+					disabled
 				/>
 			</div>
 
 			<br/>
 
 			<div>
-				<GoogleMaps center={ { lat: -34.397, lng: 150.644 } } zoom={4}/>
+				<GoogleMaps center={coordinates} marker={coordinates} zoom={4}/>
 			</div>
 
-			{/* <div>
-				<button className='btn-primary'>
-					<span>
-						Salvar endereço de entrega
-					</span>
-				</button>
-			</div> */}
 		</div>
 	);
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Input.module.css';
 
-const Input = ({ label, name, type, value, setValue, placeholder }) => {
+const Input = ({ label, name, type, value, setValue, placeholder, ...props }) => {
 	const id = name + new Date().getTime;
 
 	const onChange = ({ target }) => {
@@ -15,8 +15,6 @@ const Input = ({ label, name, type, value, setValue, placeholder }) => {
 		} else if (type === "number") {
 			value = value.replace(/\D/g, '');
 		}
-
-		console.log(value);
 
 		setValue(value);
 	}
@@ -35,6 +33,8 @@ const Input = ({ label, name, type, value, setValue, placeholder }) => {
 					value={value}
 					onChange={onChange}
 					placeholder={placeholder}
+					autoComplete='off'
+					{...props}
 				/>
 			</div>
 		</div>
