@@ -14,19 +14,23 @@ const Header = () => {
 
 	return (
 		<header className={styles.header}>
-			{location.pathname !== "/" && (
-				<button className='btn-icon' onClick={historyBack}>
-					<FaArrowLeft className={styles.icon} />
-				</button>
-			)}
+			<div className={styles.headerContainer}>
+				<div className={styles.logoWrapper}>
+					{location.pathname !== "/" && (
+						<button className='btn-icon' onClick={historyBack}>
+							<FaArrowLeft className={styles.icon} />
+						</button>
+					)}
 
-			<div className={styles.logoWrapper}>
-				<Logo />
+					<div>
+						<Logo />
+					</div>
+				</div>
+
+				<Link className={styles.cartWrapper} to="/carrinho">
+					<FaShoppingBasket className={styles.icon} />
+				</Link>
 			</div>
-
-			<Link className={styles.cartWrapper} to="/carrinho">
-				<FaShoppingBasket className={styles.icon} />
-			</Link>
 		</header>
 	);
 }

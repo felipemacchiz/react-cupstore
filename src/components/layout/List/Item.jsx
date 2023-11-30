@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from './List.module.css';
 import styled from 'styled-components';
-import { FaCheckCircle   } from "react-icons/fa";
-import { LuPlus  } from "react-icons/lu";
+import { FaCheckCircle, FaPlus  } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../../context/GlobalContext';
 
 const Image = styled.div`
-	background: url("${(props) => props.src}") center right;
+	background: url("${(props) => props.src}") center center;
 	background-size: cover;
 	height: 100%;
 	border-radius: 8px
@@ -29,7 +28,7 @@ const Item = ({ data }) => {
 	}
 
 	const handleCardClick = (event) => {
-		if (event.target.classList.contains(styles.addIcon))
+		if (event.target.classList.contains('btn-primary'))
 			return;
 
 		navigator(`/produto/${data.key}`);
@@ -43,13 +42,15 @@ const Item = ({ data }) => {
 
 			<div className={styles.infoWrapper}>
 				<div>
-					<p className='title'>{data.title}</p>
+					<p className={styles.title}>{data.title}</p>
 					<p className='price'>R$ {data.price}</p>
+					<p className={styles.description}>{data.description}</p>
 				</div>
-				
-				<div className={styles.addIconWrapper}>
-					<LuPlus onClick={addItemLocalStorage} className={styles.addIcon} />
-				</div>
+
+				<button className={`btn-primary ${styles.addBtn}`} onClick={addItemLocalStorage}>
+					<FaPlus />
+					Adicionar a cesta
+				</button>
 			</div>
 		</li>
 	);

@@ -1,3 +1,5 @@
+@import url("../../../assets/styles/animations.css");
+
 .header {
 	display: flex;
 	align-items: baseline;
@@ -15,22 +17,43 @@
 	column-gap: 10px;
 }
 
-.list {
-	display: flex;
+.listStyleGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	grid-gap: 16px;
+	columns: auto;
+	animation: easeInLeft 0.2s forwards;
+}
+
+.listStyleList {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-auto-rows: 180px;
 	flex-direction: column;
 	row-gap: 16px;
+	animation: easeInLeft 0.2s forwards;
 }
 
 .item {
 	list-style: none;
 	background-color: var(--white);
-	display: grid;
-	grid-template-columns: 120px 1fr;
-	height: 120px;
 	border-radius: 8px;
 	box-shadow: 2px 2px 2px #00000015;
 	transition: 0.1s;
 	cursor: pointer;
+	animation: easeInLeft 0.2s forwards;
+}
+
+.listStyleGrid .item {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr;
+}
+
+.listStyleList .item {
+	display: grid;
+	grid-template-columns: 180px 1fr;
+	column-gap: 16px;
 }
 
 .item:hover {
@@ -38,11 +61,33 @@
 	transition: box-shadow 0.2s;
 }
 
+.imgWrapper {
+	width: 100%;
+	aspect-ratio: 1 / 1;
+}
+
 .infoWrapper {
 	padding: 10px 16px;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
-	
+}
+
+.listStyleGrid .infoWrapper {
+	row-gap: 20px;
+}
+
+.infoWrapper .title {
+	text-wrap: nowrap;
+}
+
+.infoWrapper .description {
+	font-size: 14px;
+	color: var(--gray);
+}
+
+.listStyleGrid .description {
+	display: none;
 }
 
 .addIconWrapper {
@@ -64,4 +109,13 @@
 	color: var(--white);
 	background-color: var(--cerise);
 	border-color: var(--cerise);
+}
+
+.addBtn {
+	margin-top: auto;
+}
+
+.listStyleList .addBtn {
+	margin-left: auto;
+	max-width: 240px;
 }

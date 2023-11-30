@@ -6,7 +6,7 @@ import Error from '../../helper/Error/Error';
 import Loading from '../../helper/Loading/Loading';
 import Item from './Item';
 
-const List = ({ query }) => {
+const List = ({ query, listClass }) => {
     const { data, loading, error, request } = useFetch();
 
     React.useEffect(() => {
@@ -38,7 +38,7 @@ const List = ({ query }) => {
     if (data) {
         return (
             <div>
-                <ul className={styles.list}>
+                <ul className={`${listClass === 'grid' ? styles.listStyleGrid : styles.listStyleList}`} data-animation='easeInLeft' >
                     {data.map((item, index) => <Item key={index} data={item} />)}
                 </ul>
             </div>

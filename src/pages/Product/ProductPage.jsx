@@ -15,7 +15,7 @@ import Comments from '../../components/helper/Comments/Comments';
 const Image = styled.div`
 	background: url("${(props) => props.src}") center right;
 	background-size: cover;
-	height: 240px;
+	height: 360px;
 `;
 
 const ProductPage = () => {

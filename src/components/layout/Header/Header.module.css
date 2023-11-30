@@ -1,9 +1,4 @@
 .header {
-    display: grid;
-    grid-template-areas: ". logo cart";
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
     height: 50px;
     background-color: var(--cerise);
     color: var(--white);
@@ -15,9 +10,24 @@
     z-index: 100;
 }
 
+.headerContainer {
+    height: 50px;
+    padding: 0 20px;
+    margin: auto;
+    width: 100vw;
+    max-width: var(--screen-width-fluid);
+    display: grid;
+    grid-template-areas: "logo cart";
+    justify-content: space-between;
+    align-items: center;
+}
+
 .logoWrapper {
     grid-area: logo;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
 }
 
 .cartWrapper {

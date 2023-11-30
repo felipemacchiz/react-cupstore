@@ -44,4 +44,5 @@
 	background: transparent;
 	border: transparent;
 	cursor: pointer;
+	display: flex;
 }
