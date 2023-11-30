@@ -11,6 +11,9 @@
 	gap: 8px;
 	cursor: pointer;
 	transition: 0.2s;
+	font-weight: 500;
+	font-size: 14px;
+	font-weight: 600;
 }
 
 .btn-primary:hover {
@@ -33,11 +36,34 @@
 	border-radius: 4px;
 	cursor: pointer;
 	transition: 0.2s;
+	font-weight: 600;
 }
 
 .btn-secondary:hover {
 	box-shadow: 0 0 8px #00000025;
 	opacity: 0.9;
+}
+
+.btn-outline {
+	background: var(--white);
+	color: var(--cerise);
+	border: 1px solid var(--cerise);
+	padding: 8px 12px;
+	border-radius: 8px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	cursor: pointer;
+	transition: 0.2s;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.btn-outline:hover {
+	box-shadow: 0 0 8px #00000025;
+	background-color: var(--platinum);
 }
 
 .btn-icon {

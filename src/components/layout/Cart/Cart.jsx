@@ -7,9 +7,15 @@ import { GlobalContext } from '../../../context/GlobalContext';
 import CartResume from './CartResume';
 import CartHeader from './CartHeader';
 import CartShipping from './CartShipping';
+import CartReview from './CartReview';
 
 const Cart = () => {
 	const global = React.useContext(GlobalContext);
+	const [stage, setStage] = React.useState(1);
+
+	React.useEffect(() => {
+		console.log(stage);
+	}, [stage]);
 
 	if (!global.cart.length) {
 		return (
@@ -22,13 +28,27 @@ const Cart = () => {
 		return (
 			<div>
 				<CartHeader />
-				{/* {global.cart.map((item, index) => <p key={index}>{item.title} ({global.cart.filter(i => i.id === item.id).length}x)</p>)} */}
-				
-				<CartShipping />
-				
-				<br/>
 
-				<CartResume />
+				<div className={styles.cardsContainer}>
+					<CartReview 
+						activeStage={1} 
+						stage={stage} 
+						setStage={setStage} 
+					/>
+
+					<CartShipping 
+						activeStage={2} 
+						stage={stage} 
+						setStage={setStage}
+					/>
+					
+					<CartResume 
+						activeStage={3} 
+						stage={stage} 
+						setStage={setStage} 
+					/>
+				</div>
+				
 			</div>
 		);
 	}

@@ -1,0 +1,60 @@
+@import url('../../../../assets/styles/animations.css');
+
+.card {
+	background: var(--white);
+	padding: 16px 24px;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+}
+
+.cardTitle {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+	transition: 0.2s;
+}
+
+.pendingTitle {
+	color: var(--gray);
+}
+
+.completedTitle .icon {
+	color: var(--green);
+}
+
+.cardContent {
+	overflow: hidden;
+	/* animation: collapseUp 0.6s forwards; */
+	max-height: 0;
+}
+
+.cardActive {
+	animation: expandDown 0.6s forwards;
+	max-height: 1000px;
+}
+
+.cardCollapsed {
+	animation: collapseUp 0.6s forwards;
+}
+
+@keyframes collapseUp {
+	from {
+		max-height: 1000px;
+	}
+	to {
+		max-height: 0;
+		display: none;
+	}
+}
+
+@keyframes expandDown {
+	from {
+		max-height: 0;
+		display: none;
+	}
+	to {
+		heimax-heightght: 1000px;
+	}
+}

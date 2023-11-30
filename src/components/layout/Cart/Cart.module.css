@@ -1,3 +1,9 @@
+.cardsContainer {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
 .emptyCart {
 	display: flex;
 	flex-direction: column;
@@ -11,15 +17,6 @@
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 20px;
-}
-
-.cartResume {
-	background: var(--white);
-	padding: 16px 24px;
-	border-radius: 8px;
-	display: flex;
-	flex-direction: column;
-	row-gap: 10px;
 }
 
 .cartResumeContent {
@@ -43,4 +40,11 @@
 	flex-direction: column;
 	row-gap: 1rem;
 	max-width: 700px;
+}
+
+.actions {
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	column-gap: 20px;
 }

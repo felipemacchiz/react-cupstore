@@ -20,6 +20,28 @@
 	}
 }
 
+@keyframes easeInUp {
+	from {
+		transform: translateY(30px);
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes easeInDown {
+	from {
+		transform: translateY(-30px);
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
 @keyframes easeOutLeft {
 	from {
 		opacity: 1;
@@ -39,5 +61,45 @@
 	to {
 		transform: translateX(30px);
 		opacity: 0;
+	}
+}
+
+@keyframes easeOutUp {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-30px);
+		opacity: 0;
+	}
+}
+
+@keyframes easeOutDown {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(30px);
+		opacity: 0;
+	}
+}
+
+@keyframes collapseUp {
+	from {
+		height: max-content;
+	}
+	to {
+		height: 0;
+	}
+}
+
+@keyframes expandDown {
+	from {
+		height: 0;
+	}
+	to {
+		height: max-content;
 	}
 }

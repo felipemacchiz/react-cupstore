@@ -35,7 +35,9 @@
     text-decoration: none;
 }
 
+
 .icon {
-    font-size: 1.3em;
+    font-size: 1.4em;
     color: var(--white);
+    display: flex;
 }
