@@ -48,3 +48,47 @@
 	grid-template-columns: repeat(2, 1fr);
 	column-gap: 20px;
 }
+
+.cartReviewListContainer {
+	/* max-width: 360px; */
+	max-height: 380px;
+	overflow-y: auto;
+	margin-top: 10px;
+}
+
+.cartReviewList {
+	list-style: none;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-auto-rows: 36px;
+	row-gap: 10px;
+}
+
+.cartReviewList li {
+	display: grid;
+	grid-template-columns: 36px 1fr 36px;
+	grid-template-areas: 'img title-price delete-btn';
+	align-items: center;
+	column-gap: 10px;
+	border-radius: 4px;
+	background: #fafafa;
+	box-shadow: 0 2px 2px #22222215;
+	overflow: hidden;
+}
+
+.cartReviewListTitlePrice {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	margin-right: 10px;
+}
+
+.cartReviewTotalPrice {
+	display: flex;
+	margin-top: 10px;
+	border-top: 1px solid #22222215;
+	padding: 10px 56px 0 46px;
+	justify-content: space-between;
+	font-weight: 600;
+	font-size: 18px;
+}

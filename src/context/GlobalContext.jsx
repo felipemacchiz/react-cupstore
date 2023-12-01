@@ -25,6 +25,16 @@ export const GlobalStorage = ({ children }) => {
 		localStorage.setItem('cart', '[]');
 	}
 
+	const deleteItemCart = (index) => {
+		const updatedCart = [...cart];
+
+		updatedCart.splice(index, 1);
+
+		setCart(updatedCart);
+
+		localStorage.setItem('cart', JSON.stringify(cart));
+	}
+
 	React.useEffect(() => {
 		if (localStorage.getItem('cart').length)
 			setCart(JSON.parse(localStorage.getItem('cart')));
@@ -38,6 +48,7 @@ export const GlobalStorage = ({ children }) => {
 			setCart,
 			addItemCart,
 			deleteCart,
+			deleteItemCart,
 			distance,
 			setDistance,
 		}}>

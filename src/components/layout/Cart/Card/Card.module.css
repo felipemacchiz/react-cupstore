@@ -31,7 +31,7 @@
 }
 
 .cardActive {
-	animation: expandDown 0.6s forwards;
+	animation: expandDown 1.2s forwards;
 	max-height: 1000px;
 }
 
