@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Cart.module.css';
-import { GlobalContext } from '../../../context/GlobalContext';
 import CardTitle from './Card/CardTitle';
 import CardContent from './Card/CardContent';
 import Card from './Card/Card';
