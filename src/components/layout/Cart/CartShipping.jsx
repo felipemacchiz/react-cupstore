@@ -74,11 +74,6 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 			getCoordinates();
 	}, [address]);
 
-	React.useEffect(() => {
-		console.log("distance");
-		console.log(global.distance);
-	}, [global.distance]);
-
 	return (
 		<Card activeStage={activeStage} stage={stage}>
 			<CardTitle 

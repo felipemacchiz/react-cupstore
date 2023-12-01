@@ -13,10 +13,6 @@ const Cart = () => {
 	const global = React.useContext(GlobalContext);
 	const [stage, setStage] = React.useState(1);
 
-	React.useEffect(() => {
-		console.log(stage);
-	}, [stage]);
-
 	if (!global.cart.length) {
 		return (
 			<div className={styles.emptyCart}>
