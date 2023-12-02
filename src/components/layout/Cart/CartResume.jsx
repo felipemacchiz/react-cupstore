@@ -4,6 +4,7 @@ import { GlobalContext } from '../../../context/GlobalContext';
 import CardTitle from './Card/CardTitle';
 import CardContent from './Card/CardContent';
 import Card from './Card/Card';
+import { FaArrowUp, FaCheck } from 'react-icons/fa';
 
 const CartResume = ({ activeStage, stage, setStage }) => {
 	const global = React.useContext(GlobalContext);
@@ -61,8 +62,15 @@ const CartResume = ({ activeStage, stage, setStage }) => {
 				</div>
 
 				<div className={styles.actions}>
-					<button className='btn-outline' onClick={() => setStage(stage - 1)}>Voltar para endereço</button>
-					<button className='btn-primary' onClick={() => setStage(stage + 1)}>Confirmar e ir para o pagamento</button>
+					<button className='btn-outline' onClick={() => setStage(stage - 1)}>
+						<FaArrowUp />
+						Voltar para endereço
+					</button>
+					
+					<button className='btn-primary' onClick={() => setStage(stage + 1)}>
+						<FaCheck />
+						Confirmar e ir para o pagamento
+					</button>
 				</div>
 			</CardContent>
 		</Card>

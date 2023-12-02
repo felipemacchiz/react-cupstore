@@ -10,6 +10,7 @@ import { GlobalContext } from '../../../context/GlobalContext';
 import CardTitle from './Card/CardTitle';
 import CardContent from './Card/CardContent';
 import Card from './Card/Card';
+import { FaArrowUp, FaCheck, FaExclamationCircle } from 'react-icons/fa';
 
 
 const CartShipping = ({ activeStage, stage, setStage }) => {
@@ -74,6 +75,14 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 			getCoordinates();
 	}, [address]);
 
+	const confirmLocation = () => {
+		if (data && numero) {
+			setStage(stage + 1);
+		} else {
+			console.log("Endereço inválido");
+		}
+	}
+
 	return (
 		<Card activeStage={activeStage} stage={stage}>
 			<CardTitle 
@@ -131,8 +140,15 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 				</div>
 
 				<div className={styles.actions}>
-					<button className='btn-outline' onClick={() => setStage(stage - 1)}>Voltar para revisão dos produtos</button>
-					<button className='btn-primary' onClick={() => setStage(stage + 1)}>Confirmar e ir para resumo</button>
+					<button className='btn-outline' onClick={() => setStage(stage - 1)}>
+						<FaArrowUp />
+						Voltar para revisão dos produtos
+					</button>
+					
+					<button className='btn-primary' onClick={confirmLocation}>
+						<FaCheck />
+						Confirmar e ir para resumo
+					</button>
 				</div>
 			</CardContent>
 		</Card>

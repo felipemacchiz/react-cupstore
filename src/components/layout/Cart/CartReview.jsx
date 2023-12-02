@@ -4,7 +4,7 @@ import CardTitle from './Card/CardTitle';
 import CardContent from './Card/CardContent';
 import Card from './Card/Card';
 import { useNavigate } from 'react-router-dom';
-import { FaCheck, FaLongArrowAltLeft } from 'react-icons/fa';
+import { FaArrowLeft, FaCheck } from 'react-icons/fa';
 import CartReviewList from './CartReviewList';
 
 const CartReview = ({ activeStage, stage, setStage }) => {
@@ -24,7 +24,7 @@ const CartReview = ({ activeStage, stage, setStage }) => {
 
 				<div className={styles.actions}>
 					<button className='btn-outline' onClick={() => navigate('/')}>
-						<FaLongArrowAltLeft />
+						<FaArrowLeft />
 						Voltar para lista de produtos
 					</button>
 					<button className='btn-primary' onClick={() => setStage(stage + 1)}>
