@@ -36,7 +36,7 @@ export const GlobalStorage = ({ children }) => {
 	}
 
 	React.useEffect(() => {
-		if (localStorage.getItem('cart').length)
+		if (localStorage.getItem('cart')?.length)
 			setCart(JSON.parse(localStorage.getItem('cart')));
 	}, []);
 
