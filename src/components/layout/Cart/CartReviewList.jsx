@@ -34,7 +34,7 @@ const CartReviewList = () => {
 						{sortedData.map((item, index) => (
 							<li key={index} className='item-line'>
 								<div className={styles.cartReviewListImg}>
-									<img src={`${window.location.origin}/${item.img}`} alt={item.title} />
+									<img src={item.img} alt={item.title} />
 								</div>
 								<div className={styles.cartReviewListTitlePrice}>
 									<span>{item.title}</span>
