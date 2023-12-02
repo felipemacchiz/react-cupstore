@@ -31,10 +31,10 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 	setKey(import.meta.env.VITE_GOOGLE_MAPS_API_KEY);
 
     React.useEffect(() => {
-        async function fetchProducts() {
+        async function fetchCep() {
 			if (cep && cep.length === 9) {
 				const { url, options } = CEP_GET({ 
-					cep: cep.replace(/\D/g, ''),
+					cep: `${cep}`.replace(/\D/g, ''),
 				});
 				
 				await request(url, options);
@@ -53,7 +53,7 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 			}
         }
 
-        fetchProducts();
+        fetchCep();
     }, [request, cep, data]);
 
 	React.useEffect(() => {
@@ -79,7 +79,10 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 		if (data && numero) {
 			setStage(stage + 1);
 		} else {
-			console.log("Endereço inválido");
+			global.setAlert({
+				icon: <FaExclamationCircle />,
+				text: "Endereço inválido",
+			});
 		}
 	}
 
@@ -103,7 +106,7 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 						setValue={setCep}
 					/>
 
-					{(error) && <Error error={error} />}
+					{(error) && <Error error={"CEP inválido"} />}
 
 					<Input 
 						name="logradouro" 

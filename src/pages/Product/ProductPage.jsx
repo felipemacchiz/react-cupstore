@@ -3,7 +3,7 @@ import styles from './ProductPage.module.css';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
-import { PRODUCTS_GET } from '../../api';
+import { PRODUCT_GET } from '../../api';
 import Error from '../../components/helper/Error/Error';
 import Loading from '../../components/helper/Loading/Loading';
 import StarRating from '../../components/helper/StarRating/StarRating';
@@ -38,9 +38,7 @@ const ProductPage = () => {
 
 	React.useEffect(() => {
         async function fetchProducts() {
-            const { url, options } = PRODUCTS_GET({ 
-                extra: `key=${params.key}`,
-            });
+            const { url, options } = PRODUCT_GET({ key: params.key });
 
             const { response, json } = await request(url, options);
         }

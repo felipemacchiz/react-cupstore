@@ -1,4 +1,4 @@
-export const API_URL = 'http://localhost:3000/';
+export const API_URL = 'https://cupstore-api.onrender.com/api/';
 
 export function PRODUCTS_GET({ page, limit, query, extra }) {
 	const params = [];
@@ -9,7 +9,7 @@ export function PRODUCTS_GET({ page, limit, query, extra }) {
 	(extra) && params.push(extra);
 
 	return {
-		url: `${API_URL}products?${params.join('&')}`,
+		url: `${API_URL}cupcakes`,
 		options: {
 			method: 'GET',
 			cache: 'no-store'
@@ -17,9 +17,9 @@ export function PRODUCTS_GET({ page, limit, query, extra }) {
 	}
 }
 
-export function PRODUCT_GET({ id }) {
+export function PRODUCT_GET({ key }) {
 	return {
-		url: `${API_URL}products/${id}`,
+		url: `${API_URL}cupcakes/${key}`,
 		options: {
 			method: 'GET',
 			cache: 'no-store'

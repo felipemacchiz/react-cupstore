@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Input.module.css';
 
 const Input = ({ label, name, type, value, setValue, placeholder, ...props }) => {
-	const id = name + new Date().getTime;
+	const id = name + new Date().getTime();
 
 	const onChange = ({ target }) => {
 		let value = target.value;
