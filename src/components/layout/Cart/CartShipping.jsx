@@ -11,6 +11,7 @@ import CardTitle from './Card/CardTitle';
 import CardContent from './Card/CardContent';
 import Card from './Card/Card';
 import { FaArrowUp, FaCheck, FaExclamationCircle } from 'react-icons/fa';
+import { json } from 'react-router-dom';
 
 
 const CartShipping = ({ activeStage, stage, setStage }) => {
@@ -19,6 +20,7 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 	const [coordinates, setCoordinates] = React.useState(null);
 
 	const [cep, setCep] = React.useState('');
+	const [respCep, setRespCep] = React.useState('');
 	const [logradouro, setLogradouro] = React.useState('');
 	const [numero, setNumero] = React.useState('');
 	const [bairro, setBairro] = React.useState('');
@@ -26,7 +28,7 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 	const [uf, setUf] = React.useState('');
 	const [address, setAddress] = React.useState('');
 
-	const { data, loading, error, request } = useFetch();
+	const { loading, error, request } = useFetch();
 
 	setKey(import.meta.env.VITE_GOOGLE_MAPS_API_KEY);
 
@@ -37,15 +39,17 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 					cep: `${cep}`.replace(/\D/g, ''),
 				});
 				
-				await request(url, options);
+				const { response, json } = await request(url, options);
 
-				if (data) {
-					setLogradouro(data.logradouro);
-					setBairro(data.bairro);
-					setCidade(data.localidade);
-					setUf(data.uf);
+				if (response.ok) {
+					setRespCep(json.cep);
+					setLogradouro(json.logradouro);
+					setBairro(json.bairro);
+					setCidade(json.localidade);
+					setUf(json.uf);
 				}
 			} else {
+				setRespCep('');
 				setLogradouro('');
 				setBairro('');
 				setCidade('');
@@ -54,7 +58,7 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
         }
 
         fetchCep();
-    }, [request, cep, data]);
+    }, [request, cep]);
 
 	React.useEffect(() => {
 		if (logradouro && bairro && numero) {
@@ -64,7 +68,7 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 
 	React.useEffect(() => {
 		async function getCoordinates() {
-			const {results, status} = await fromAddress(address);
+			const { results, status } = await fromAddress(address);
 
 			if (status === 'OK') {
 				setCoordinates(results[0].geometry.location);
@@ -76,7 +80,7 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 	}, [address]);
 
 	const confirmLocation = () => {
-		if (data && numero) {
+		if (address) {
 			setStage(stage + 1);
 		} else {
 			global.setAlert({
@@ -97,43 +101,38 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 
 			<CardContent activeStage={activeStage} stage={stage}>
 				<div className={styles.form}>
-					<Input 
-						name="cep" 
-						label="CEP"
-						type="cep" 
-						placeholder="Informe seu CEP" 
-						value={cep}
-						setValue={setCep}
-					/>
+					<div className={styles.fields}>
+						<Input 
+							name="cep" 
+							label="CEP"
+							type="cep" 
+							placeholder="Informe seu CEP" 
+							value={cep}
+							setValue={setCep}
+						/>
 
-					{(error) && <Error error={"CEP inválido"} />}
+						<Input 
+							name="numero" 
+							label="Número" 
+							type="number"
+							placeholder="Informe seu número" 
+							value={numero}
+							setValue={setNumero}
+						/>
+					</div>
 
-					<Input 
-						name="logradouro" 
-						label="Logradouro" 
-						placeholder="Informe seu CEP para preencher o logradouro" 
-						value={logradouro}
-						setValue={setLogradouro}
-						disabled
-					/>
-					
-					<Input 
-						name="numero" 
-						label="Número" 
-						type="number"
-						placeholder="Informe seu número" 
-						value={numero}
-						setValue={setNumero}
-					/>
-
-					<Input 
-						name="bairro" 
-						label="Bairro" 
-						placeholder="Informe seu CEP para preencher o bairro" 
-						value={bairro}
-						setValue={setBairro}
-						disabled
-					/>
+					<div className={styles.cartAddress}>
+						<div>
+							{logradouro && <span>{logradouro}</span>}
+							{numero && <span>, {numero}</span>}
+							{bairro && <span> - {bairro}</span>}
+						</div>
+						<div>
+							{cidade && <span>{cidade}</span>}
+							{uf && <span> - {uf}</span>}
+							{respCep && <span>, {respCep}</span>}
+						</div>
+					</div>
 				</div>
 
 				<br/>
@@ -145,12 +144,12 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 				<div className={styles.actions}>
 					<button className='btn-outline' onClick={() => setStage(stage - 1)}>
 						<FaArrowUp />
-						Voltar para revisão dos produtos
+						Voltar
 					</button>
 					
 					<button className='btn-primary' onClick={confirmLocation}>
 						<FaCheck />
-						Confirmar e ir para resumo
+						Confirmar
 					</button>
 				</div>
 			</CardContent>

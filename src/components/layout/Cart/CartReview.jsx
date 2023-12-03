@@ -25,11 +25,11 @@ const CartReview = ({ activeStage, stage, setStage }) => {
 				<div className={styles.actions}>
 					<button className='btn-outline' onClick={() => navigate('/')}>
 						<FaArrowLeft />
-						Voltar para lista de produtos
+						Voltar
 					</button>
 					<button className='btn-primary' onClick={() => setStage(stage + 1)}>
 						<FaCheck />
-						Ir para o endereço de entrega
+						Confirmar
 					</button>
 				</div>
 			</CardContent>
