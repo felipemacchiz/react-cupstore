@@ -178,10 +178,9 @@
 
 
 @media screen and (max-width: 480px) {
-	.infoWrapper .description {
+	.listStyleList .infoWrapper .description {
 		display: none;
 	}
-
 
 	.listStyleGrid {
 		grid-template-columns: repeat(2, 1fr);
