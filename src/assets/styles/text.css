@@ -1,0 +1,11 @@
+.text-primary {
+	color: var(--cerise);
+}
+
+.text-secondary {
+	color: var(--platinum);
+}
+
+.text-gray {
+	color: var(--gray);
+}

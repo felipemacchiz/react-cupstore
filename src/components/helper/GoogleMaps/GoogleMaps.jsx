@@ -4,7 +4,7 @@ import { GlobalContext } from '../../../context/GlobalContext';
 
 const containerStyle = {
 	width: '100%',
-	maxHeight: 240,
+	maxHeight: 180,
 	aspectRatio: '3/1',
 	borderRadius: 10,
 	marginBottom: 20,

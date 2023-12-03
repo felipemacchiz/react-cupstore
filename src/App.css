@@ -6,6 +6,7 @@
 @import url('./assets/styles/container.css');
 @import url('./assets/styles/scrollbar.css');
 @import url('./assets/styles/variables.css');
+@import url('./assets/styles/text.css');
 
 * {
   	margin: 0;

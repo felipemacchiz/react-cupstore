@@ -77,6 +77,8 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 
 		if (address)
 			getCoordinates();
+		else
+			setAddress('');
 	}, [address]);
 
 	const confirmLocation = () => {
@@ -120,25 +122,50 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 							setValue={setNumero}
 						/>
 					</div>
-
-					<div className={styles.cartAddress}>
-						<div>
-							{logradouro && <span>{logradouro}</span>}
-							{numero && <span>, {numero}</span>}
-							{bairro && <span> - {bairro}</span>}
-						</div>
-						<div>
-							{cidade && <span>{cidade}</span>}
-							{uf && <span> - {uf}</span>}
-							{respCep && <span>, {respCep}</span>}
-						</div>
-					</div>
 				</div>
 
 				<br/>
 
-				<div>
-					<GoogleMaps center={coordinates} marker={coordinates} zoom={4}/>
+				<div className={styles.addressMap}>
+					<div>
+						<h3>Endereço</h3>
+
+						<div className={styles.cartAddress}>
+							{address ? (
+								<>
+									<div>
+										<div className={styles.addressRow}>
+											{logradouro && <span>{logradouro}</span>}
+											{numero && <span><span className={styles.addressComma}>,</span> {numero}</span>}
+										</div>
+										
+										<div className={styles.addressRow}>
+											{bairro && <span><span className={styles.addressComma}> - </span>{bairro}</span>}
+										</div>
+									</div>
+
+									<div>
+										<div className={styles.addressRow}>
+											{cidade && <span>{cidade}</span>}
+											{uf && <span> - {uf}</span>}
+										</div>
+										
+										<div className={styles.addressRow}>
+											{respCep && <span><span className={styles.addressComma}>,</span> {respCep}</span>}
+										</div>
+									</div>
+								</>
+							) : (
+								<div>
+									<span className='text-gray'>Coloque seu CEP e o número nos campos acima</span>
+								</div>
+							)}
+						</div>
+					</div>
+
+					<div className={styles.googleMaps}>
+						<GoogleMaps center={coordinates} marker={coordinates} zoom={4}/>
+					</div>
 				</div>
 
 				<div className={styles.actions}>
