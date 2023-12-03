@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './List.module.css';
 import styled from 'styled-components';
-import { FaCheckCircle, FaPlus  } from "react-icons/fa";
+import { FaCartPlus, FaCheckCircle, FaPlus  } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../../context/GlobalContext';
 
@@ -48,8 +48,14 @@ const Item = ({ data }) => {
 				</div>
 
 				<button className={`btn-primary ${styles.addBtn}`} onClick={addItemLocalStorage}>
-					<FaPlus />
-					Adicionar a cesta
+					<span className={`${styles.btnIcon} ${styles.iconPlus}`}>
+						<FaPlus />
+					</span>
+					<span className={`${styles.btnIcon} ${styles.iconCartPlus}`}>
+						<FaCartPlus />
+					</span>
+
+					<span className={styles.btnText}>Carrinho</span>
 				</button>
 			</div>
 		</li>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaShoppingBasket, FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaShoppingCart } from "react-icons/fa";
 import styles from './Header.module.css';
 import Logo from '../../helper/Logo/Logo';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -28,7 +28,7 @@ const Header = () => {
 				</div>
 
 				<Link className={styles.cartWrapper} to="/carrinho">
-					<FaShoppingBasket className={styles.icon} />
+					<FaShoppingCart className={styles.icon} />
 				</Link>
 			</div>
 		</header>

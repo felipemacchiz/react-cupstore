@@ -103,3 +103,12 @@
 		height: max-content;
 	}
 }
+
+@keyframes expandRight {
+	from {
+		width: 0;
+	}
+	to {
+		width: max-content;
+	}
+}
