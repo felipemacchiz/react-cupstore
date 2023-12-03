@@ -28,7 +28,7 @@ const Item = ({ data }) => {
 	}
 
 	const handleCardClick = (event) => {
-		if (event.target.classList.contains('btn-primary'))
+		if (event.target.closest('.btn-primary'))
 			return;
 
 		navigator(`/produto/${data.key}`);

@@ -6,4 +6,7 @@
     text-decoration: none;
     font-style: normal;
     user-select: none;
+    display: flex;
+    align-items: flex-start;
+    column-gap: 2px;
 }
