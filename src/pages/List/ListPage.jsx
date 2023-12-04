@@ -3,6 +3,7 @@ import styles from "../../components/layout/List/List.module.css"
 import List from '../../components/layout/List/List';
 import SearchBar from '../../components/helper/SearchBar/SearchBar';
 import { FaThLarge, FaThList } from "react-icons/fa";
+import Banner from '../../components/layout/Banner/Banner';
 
 const ListPage = () => {
     const [search, setSearch] = React.useState('');
@@ -25,18 +26,24 @@ const ListPage = () => {
     }
 
     return (
-		<section className='container content' data-animation='easeInLeft'>
-			<div className={styles.header}>
-                <h2 className='font-lobster'>Cupcakes</h2>
-                <div className={styles.headerFilterArea}>
-                    {/* <SearchBar search={search} setSearch={setSearch} /> */}
-                    <button className='btn-secondary' onClick={changeListClass}>
-                        {(listStyle === 'grid') ? <FaThList /> : <FaThLarge /> }
-                    </button>
-                </div>
+		<div>
+            <div className='fullContainer' data-animation='easeInLeft'>
+                <Banner />
             </div>
-			<List query={search} listClass={listStyle} />
-		</section>
+
+            <section className='container' data-animation='easeInLeft'>
+                <div className={styles.header}>
+                    <h2 className='font-lobster'>Cupcakes</h2>
+                    <div className={styles.headerFilterArea}>
+                        {/* <SearchBar search={search} setSearch={setSearch} /> */}
+                        <button className='btn-secondary' onClick={changeListClass}>
+                            {(listStyle === 'grid') ? <FaThList /> : <FaThLarge /> }
+                        </button>
+                    </div>
+                </div>
+                <List query={search} listClass={listStyle} />
+            </section>
+        </div>
     );
 }
 
