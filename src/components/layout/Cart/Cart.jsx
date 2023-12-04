@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './Cart.module.css';
 import { FaSadTear } from 'react-icons/fa';
-import useFetch from '../../../hooks/useFetch';
-import { PRODUCTS_GET } from '../../../api';
 import { GlobalContext } from '../../../context/GlobalContext';
 import CartResume from './CartResume';
 import CartHeader from './CartHeader';

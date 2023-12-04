@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './Cart.module.css';
 import { FaTrash } from 'react-icons/fa';
 import { GlobalContext } from '../../../context/GlobalContext';
+import { currencyFormat } from '../../../commom';
 
 const CartReviewList = () => {
 	const global = React.useContext(GlobalContext);
 	const cart = global.cart;
-	const refs = React.useRef(new Array(cart.length).fill(React.createRef()));
 
 	const deleteItem = (target, index) => {
 		const element = target.closest('.item-line');
@@ -38,7 +38,7 @@ const CartReviewList = () => {
 								</div>
 								<div className={styles.cartReviewListTitlePrice}>
 									<span>{item.title}</span>
-									<span>R$ {item.price}</span>
+									<span>{currencyFormat(item.price)}</span>
 								</div>
 								<div className={styles.cartReviewListDeleteBtn}>
 									<button className='btn-icon' onClick={({ target }) => deleteItem(target, index)}>
@@ -59,7 +59,7 @@ const CartReviewList = () => {
 
 					<div>
 						<span>
-							R$ {totalPrice}
+							{currencyFormat(totalPrice)}
 						</span>
 					</div>
 				</div>

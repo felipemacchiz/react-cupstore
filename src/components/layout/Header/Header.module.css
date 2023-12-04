@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-.logoWrapper {
+.leftWrapper {
     grid-area: logo;
     text-decoration: none;
     display: flex;
@@ -30,9 +30,12 @@
     column-gap: 20px;
 }
 
-.cartWrapper {
+.rightWrapper {
     grid-area: cart;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
 }
 
 
@@ -40,4 +43,43 @@
     font-size: 1.4em;
     color: var(--white);
     display: flex;
+}
+
+.linkBtn {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+    transition: 0.2s;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.btnText {
+    max-width: 0;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.linkBtn:hover {
+    background-color: var(--platinum);
+    color: #222;
+}
+
+.linkBtn:hover .btnText {
+    animation: expandRight 1.6s forwards;
+    max-width: 1000px;
+}
+
+.linkBtn:hover .icon {
+    color: #222;
+}
+
+@keyframes expandRight {
+	from {
+		max-width: 0;
+		display: none;
+	}
+	to {
+		max-width: 1000px;
+	}
 }

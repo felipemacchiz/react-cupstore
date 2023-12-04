@@ -20,8 +20,17 @@
 }
 
 .cartResumeContent {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+}
+
+.cartResumeListContainer {
+	max-width: 480px;
+    max-height: 380px;
+    overflow-y: auto;
+	padding-bottom: 10px;
+	border-bottom: 1px solid var(--platinum);
 }
 
 .cartResumeTotal {

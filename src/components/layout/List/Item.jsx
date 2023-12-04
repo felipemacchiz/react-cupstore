@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { FaCartPlus, FaCheckCircle, FaPlus  } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../../context/GlobalContext';
+import { currencyFormat } from '../../../commom';
 
 const Image = styled.div`
 	background: url("${(props) => props.src}") center center;
@@ -43,7 +44,7 @@ const Item = ({ data }) => {
 			<div className={styles.infoWrapper}>
 				<div>
 					<p className={styles.title}>{data.title}</p>
-					<p className='price'>R$ {data.price}</p>
+					<p className='price'>{currencyFormat(data.price)}</p>
 					<p className={styles.description}>{data.description}</p>
 				</div>
 

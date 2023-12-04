@@ -55,6 +55,6 @@
 		display: none;
 	}
 	to {
-		heimax-heightght: 1000px;
+		max-height: 1000px;
 	}
 }

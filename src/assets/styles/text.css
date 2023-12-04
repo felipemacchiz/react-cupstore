@@ -9,3 +9,7 @@
 .text-gray {
 	color: var(--gray);
 }
+
+.font-lobster {
+	font-family: var(--logo-font);
+}

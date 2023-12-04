@@ -40,8 +40,8 @@ const GoogleMaps = ({ center, marker }) => {
 					options={{
 						destinations: [marker],
 						origins: [{
-							lat: -25.4579523,
-							lng: -49.2869351,
+							lat: -25.4459302,
+							lng: -49.2920642,
 						}],
 						travelMode: "DRIVING",
 					}}

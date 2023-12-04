@@ -3,11 +3,10 @@ import styles from './ProductPage.module.css';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
-import { PRODUCT_GET } from '../../api';
+import { PRODUCT_GET } from '../../api/api';
 import Error from '../../components/helper/Error/Error';
 import Loading from '../../components/helper/Loading/Loading';
 import StarRating from '../../components/helper/StarRating/StarRating';
-import Comment from '../../components/helper/Comment/Comment';
 import { FaCheckCircle } from 'react-icons/fa';
 import { GlobalContext } from '../../context/GlobalContext';
 import Comments from '../../components/helper/Comments/Comments';
@@ -38,7 +37,7 @@ const ProductPage = () => {
 
 	React.useEffect(() => {
         async function fetchProducts() {
-            const { url, options } = PRODUCT_GET({ key: params.key });
+            const { url, options } = PRODUCT_GET(params.key);
 
             const { response, json } = await request(url, options);
         }

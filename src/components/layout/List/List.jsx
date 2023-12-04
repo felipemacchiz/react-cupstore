@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './List.module.css';
 import useFetch from '../../../hooks/useFetch';
-import { PRODUCTS_GET } from '../../../api';
+import { PRODUCTS_GET } from '../../../api/api';
 import Error from '../../helper/Error/Error';
 import Loading from '../../helper/Loading/Loading';
 import Item from './Item';
@@ -11,11 +11,7 @@ const List = ({ query, listClass }) => {
 
     React.useEffect(() => {
         async function fetchProducts() {
-            const { url, options } = PRODUCTS_GET({ 
-                page: 1,
-                limit: 10,
-                query: query,
-            });
+            const { url, options } = PRODUCTS_GET();
 
             const { response, json } = await request(url, options);
         }

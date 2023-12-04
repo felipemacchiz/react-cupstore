@@ -1,0 +1,41 @@
+.orderList {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+	margin-top: 10px;
+}
+
+.orderItem {
+	background: var(--white);
+	padding: 10px;
+	display: grid;
+	grid-template-columns: 60px 1fr;
+	column-gap: 20px;
+	border-radius: 12px;
+}
+
+.orderIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
+	aspect-ratio: 1 / 1;
+	background-color: var(--platinum);
+	border-radius: 8px;
+	font-size: 20px;
+}
+
+.orderInfo {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@media screen and (max-width: 480px) {
+	.orderInfo {
+		flex-direction: column-reverse;
+		align-items: flex-start;
+		row-gap: 10px;
+	}
+}

@@ -9,6 +9,8 @@ import Alert from "./components/helper/Alert/Alert";
 import ListPage from "./pages/List/ListPage";
 import CartPage from "./pages/Cart/CartPage";
 import ProductPage from "./pages/Product/ProductPage";
+import OrderListPage from "./pages/Order/OrderListPage";
+import OrderPage from "./pages/Order/OrderPage";
 
 const App = () => {
 	return (
@@ -20,6 +22,8 @@ const App = () => {
 					<Route path='' element={<ListPage />} />
 					<Route path='carrinho' element={<CartPage />} />
 					<Route path='produto/:key' element={<ProductPage />} />
+					<Route path='pedido/' element={<OrderListPage />} />
+					<Route path='pedido/:id' element={<OrderPage />} />
 				</Routes>
 				{/* <Footer /> */}
 			</BrowserRouter>
