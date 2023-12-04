@@ -6,9 +6,11 @@ import Loading from '../../components/helper/Loading/Loading';
 import Error from '../../components/helper/Error/Error';
 import { dateDiff, dateFormat } from '../../commom';
 import { FaFileAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const OrderListPage = () => {
     const { data, loading, error, request } = useFetch();
+	const navigator = useNavigate();
 
 	React.useEffect(() => {
         async function fetchOrders() {
@@ -20,6 +22,10 @@ const OrderListPage = () => {
 
         fetchOrders();
     }, [request]);
+
+	const handleCardClick = (id) => {
+		navigator(`/pedido/${id}`);
+	}
 
 	if (error) {
         return (
@@ -56,7 +62,7 @@ const OrderListPage = () => {
 							status = "Pedido concluído!";
 
 						return (
-							<li className={styles.orderItem} key={index}>
+							<li className={styles.orderItem} key={index} onClick={() => handleCardClick(order._id)}>
 								<div className={styles.orderIcon}>
 									<FaFileAlt />
 								</div>

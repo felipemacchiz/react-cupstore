@@ -105,6 +105,10 @@
 	font-size: 18px;
 }
 
+.cartResumePrices {
+	padding: 10px 0;
+}
+
 .cartAddress {
 	margin-top: 10px;
 }

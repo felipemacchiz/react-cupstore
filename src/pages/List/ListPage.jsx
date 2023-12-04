@@ -8,6 +8,12 @@ const ListPage = () => {
     const [search, setSearch] = React.useState('');
     const [listStyle, setListStyle] = React.useState(localStorage.getItem('listStyle') || 'grid');
 
+    React.useEffect(() => {
+        if (window.location.pathname !== "/") {
+            window.location.pathname = "/";
+        }
+    }, []);
+
     const changeListClass = () => {
         if (listStyle === 'grid') {
             setListStyle('list');

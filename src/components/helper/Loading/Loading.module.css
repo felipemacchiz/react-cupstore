@@ -1,0 +1,29 @@
+.loading {
+	font-size: 20px;
+	width: 100%;
+	display: flex;
+	column-gap: 6px;
+	align-items: center;
+	justify-content: center;
+}
+
+.icon {
+	display: flex;
+}
+
+.loadEndAnimation {
+	animation: loadEndAnimation 0.4s forwards 0.4s;
+}
+
+.text {
+	font-weight: 600;
+}
+
+@keyframes loadEndAnimation {
+	from {
+		rotate: 0deg;
+	}
+	to {
+		rotate: 180deg;
+	}
+}

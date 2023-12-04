@@ -11,7 +11,7 @@ const Header = () => {
 	const hasOrders = localStorage.getItem('orders')
 
 	const historyBack = () => {
-		navigate('/');
+		navigate(`/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 2]}`);
 	}
 
 	return (

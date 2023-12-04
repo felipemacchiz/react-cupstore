@@ -7,11 +7,10 @@ import useFetch from '../../../hooks/useFetch';
 import Error from '../../helper/Error/Error';
 import { fromAddress, setKey } from 'react-geocode';
 import { GlobalContext } from '../../../context/GlobalContext';
-import CardTitle from './Card/CardTitle';
-import CardContent from './Card/CardContent';
-import Card from './Card/Card';
+import CardTitle from '../Card/CardTitle';
+import CardContent from '../Card/CardContent';
+import Card from '../Card/Card';
 import { FaArrowUp, FaCheck, FaExclamationCircle } from 'react-icons/fa';
-import { json } from 'react-router-dom';
 
 
 const CartShipping = ({ activeStage, stage, setStage }) => {

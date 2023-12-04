@@ -50,7 +50,9 @@ export function ORDERS_GET_STORED() {
 
 export function ORDER_GET(id) {
 	return {
-		url: `${API_URL}orders/${id}`,
+		url: `${API_URL}orders?${new URLSearchParams({
+			_id: id,
+		})}`,
 		options: {
 			method: 'GET',
 			cache: 'no-store'
@@ -76,10 +78,10 @@ export function ORDER_PUT(id, body) {
 		url: `${API_URL}orders/${id}`,
 		options: {
 			method: 'PUT',
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(body),
 		},
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(body),
 	}
 }

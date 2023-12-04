@@ -1,0 +1,50 @@
+.title {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+}
+
+.paymentMethodList {
+	display: flex;
+	align-items: baseline;
+	list-style: none;
+}
+
+.paymentMethodButton {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	column-gap: 6px;
+	color: var(--gray);
+	cursor: pointer;
+}
+
+.paymentMethodButton.active {
+	color: #222;
+	border: 1px solid #00000030;
+	border-radius: 4px;
+}
+
+.form {
+	padding-top: 10px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+}
+
+.formRow {
+	display: flex;
+	column-gap: 10px;
+}
+
+.formRow > div {
+	flex: 1;
+}
+
+.actions {
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	column-gap: 20px;
+	row-gap: 20px;
+}

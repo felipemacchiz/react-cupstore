@@ -2,15 +2,17 @@ import React from 'react';
 import { currencyFormat } from '../../../commom';
 import styles from './Cart.module.css';
 import { GlobalContext } from '../../../context/GlobalContext';
-import CardTitle from './Card/CardTitle';
-import CardContent from './Card/CardContent';
-import Card from './Card/Card';
+import CardTitle from '../Card/CardTitle';
+import CardContent from '../Card/CardContent';
+import Card from '../Card/Card';
 import { FaArrowUp, FaCheck } from 'react-icons/fa';
 import { ORDER_POST } from '../../../api/api';
 import useFetch from '../../../hooks/useFetch';
+import { useNavigate } from 'react-router-dom';
 
 const CartResume = ({ activeStage, stage, setStage }) => {
 	const global = React.useContext(GlobalContext);
+	const navigate = useNavigate();
 	const { request } = useFetch();
 
 	const data = global.cart;
@@ -52,8 +54,13 @@ const CartResume = ({ activeStage, stage, setStage }) => {
 
 		if (response?.ok) {
 			const storagedOrders = localStorage.getItem("orders") ? JSON.parse(localStorage.getItem("orders")) : [];
+			
 			storagedOrders.push(json._id);
+			
+			localStorage.removeItem("cart");
 			localStorage.setItem("orders", JSON.stringify(storagedOrders));
+
+			navigate(`/pagamento/${json._id}`);
 		}
 	}
 
@@ -89,7 +96,7 @@ const CartResume = ({ activeStage, stage, setStage }) => {
 						</ul>
 					</div>
 
-					<div>
+					<div className={styles.cartResumePrices}>
 						<p className={styles.cartResumeTotal}>
 							<span>Pedido:</span>
 							<span>{currencyFormat(orderPrice)}</span>
