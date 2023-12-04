@@ -1,8 +1,11 @@
 .title {
-	display: grid;
-	grid-template-columns: 30px 1fr;
+	display: flex;
 	align-items: center;
 	column-gap: 10px;
+}
+
+.titleIcon {
+	font-size: 20px;
 }
 
 .paymentMethodList {

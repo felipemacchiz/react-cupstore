@@ -113,7 +113,7 @@ const PaymentPage = () => {
 				<div className='container content'>
 					<Card>
 						<h3 className={styles.title}>
-							<FaCircleCheck />
+							<FaCircleCheck className={styles.titleIcon} />
 
 							<span>
 								O pagamento do pedido #{order._id.replace(/\D/g, '')} foi concluído com sucesso!
@@ -133,7 +133,7 @@ const PaymentPage = () => {
 				<div className='container content'>
 					<Card>
 						<h3 className={styles.title}>
-							<FaCircleCheck />
+							<FaCircleCheck className={styles.titleIcon} />
 
 							<span>
 								O pedido #{order._id.replace(/\D/g, '')} já foi pago!
