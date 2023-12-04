@@ -12,7 +12,7 @@ const CartHeader = () => {
 
 	return (
 		<div className={styles.cartHeader}>
-			<h2>Carrinho</h2>
+			<h2 className='font-lobster'>Carrinho</h2>
 			<button className='btn-secondary' onClick={clearCart}>
 				<FaTrashAlt />
 				<span>Esvaziar carrinho</span>

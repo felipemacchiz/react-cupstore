@@ -9,10 +9,6 @@
 	margin-bottom: 20px;
 }
 
-.header .title {
-    font-family: var(--logo-font);
-}
-
 .header .headerFilterArea {
 	display: flex;
 	align-items: center;
