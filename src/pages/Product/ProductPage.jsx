@@ -28,11 +28,6 @@ const ProductPage = () => {
 		event.preventDefault();
 
 		global.addItemCart(data[0]);
-
-		global.setAlert({
-            icon: <FaCheckCircle />,
-            text: `${data[0].title} adicionado ao seu carrinho!`,
-        });
 	}
 
 	React.useEffect(() => {

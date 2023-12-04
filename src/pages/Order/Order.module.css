@@ -110,7 +110,18 @@
 	z-index: 3;
 }
 
+@media screen and (max-width: 670px) {
+	.stages span {
+		font-size: 12px;
+	}
+}
+
 @media screen and (max-width: 480px) {
+	.stages span {
+		width: 60px;
+		font-size: 10px;
+	}
+
 	.orderInfo {
 		flex-direction: column-reverse;
 		align-items: flex-start;

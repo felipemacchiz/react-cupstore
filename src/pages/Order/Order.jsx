@@ -46,7 +46,7 @@ const Order = ({ order }) => {
 
 	return (
 		<div>
-			<h2>Pedido #{order._id.replace(/\D/g, '')}</h2>
+			<h3>Pedido #{order._id.replace(/\D/g, '')}</h3>
 
 			<div>
 				<span>{status || ''}</span>

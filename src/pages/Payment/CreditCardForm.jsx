@@ -51,7 +51,7 @@ const CreditCardForm = ({ setCredentials }) => {
 				<Input
 					label="CVV"
 					name="anynumericnumbers"
-					type="number"
+					type="password"
 					limit={3}
 					value={cvv}
 					setValue={setCvv}

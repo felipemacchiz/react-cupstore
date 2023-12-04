@@ -21,11 +21,6 @@ const Item = ({ data }) => {
 		event.preventDefault();
 
 		global.addItemCart(data);
-
-		global.setAlert({
-			icon: <FaCheckCircle />,
-			text: `${data.title} adicionado ao seu carrinho!`,
-		});
 	}
 
 	const handleCardClick = (event) => {

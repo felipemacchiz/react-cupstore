@@ -62,6 +62,7 @@ const Input = ({ label, name, type, value, setValue, placeholder, limit, ...prop
 					className={styles.input}
 					id={id}
 					name={name}
+					type={type !== 'password' ? 'text' : 'password'}
 					value={value}
 					onChange={onChange}
 					placeholder={placeholder}

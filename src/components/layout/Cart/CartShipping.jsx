@@ -14,7 +14,7 @@ import { FaArrowUp, FaCheck, FaExclamationCircle } from 'react-icons/fa';
 
 
 const CartShipping = ({ activeStage, stage, setStage }) => {
-	const global = React.useContext(GlobalContext);
+	const [validAddress, setValidAddress] = React.useState(false);
 
 	const [coordinates, setCoordinates] = React.useState(null);
 
@@ -74,21 +74,17 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 			}
 		}
 
-		if (address)
+		if (address) {
+			setValidAddress(true);
 			getCoordinates();
-		else
+		} else { 
+			setValidAddress(false);
 			setAddress('');
+		}
 	}, [address]);
 
 	const confirmLocation = () => {
-		if (address) {
-			setStage(stage + 1);
-		} else {
-			global.setAlert({
-				icon: <FaExclamationCircle />,
-				text: "Endereço inválido",
-			});
-		}
+		setStage(stage + 1);
 	}
 
 	return (
@@ -168,7 +164,7 @@ const CartShipping = ({ activeStage, stage, setStage }) => {
 				</div>
 
 				<div className={styles.actions}>
-					<button className='btn-outline' onClick={() => setStage(stage - 1)}>
+					<button className='btn-outline' onClick={() => setStage(stage - 1)} disabled={validAddress}>
 						<FaArrowUp />
 						Voltar
 					</button>
