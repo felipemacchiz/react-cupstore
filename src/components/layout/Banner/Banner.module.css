@@ -30,6 +30,10 @@
 	position: relative;
 }
 
+.banner .content h1 {
+	font-weight: 400;
+}
+
 .banner .content p {
 	max-width: 480px;
 }

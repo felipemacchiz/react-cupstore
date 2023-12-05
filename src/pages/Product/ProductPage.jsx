@@ -83,9 +83,6 @@ const ProductPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <Comments comments={data[0].comments} />
-                    </div>
                 </div>
             </section>
         );

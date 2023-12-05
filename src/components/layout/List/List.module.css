@@ -46,6 +46,7 @@
 .infoWrapper .description {
 	font-size: 14px;
 	color: var(--gray);
+	max-width: 720px;
 }
 
 .addIconWrapper {

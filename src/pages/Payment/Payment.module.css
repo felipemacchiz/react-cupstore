@@ -49,6 +49,13 @@
 	margin-top: 20px;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	column-gap: 20px;
-	row-gap: 20px;
+	column-gap: 10px;
+}
+
+@media screen and (max-width: 480px) {
+	.actions {
+		display: flex;
+		flex-direction: column-reverse;
+		row-gap: 10px;
+	}
 }
